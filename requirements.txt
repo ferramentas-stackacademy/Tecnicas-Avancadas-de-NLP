@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+httpx
+beautifulsoup4
+openai
+streamlit
+requests_html
+matplotlib
+python-dotenv

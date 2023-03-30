@@ -1,0 +1,396 @@
+<html>
+<head>
+    <title>Tecnicas Avancadas de NLP</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <style>
+        p {
+            font-family: sans-serif;
+            font-size: 18px;
+            line-height: 1.5;
+            color: #323232;
+        }
+
+        .proprietario{
+            font-family: sans-serif;
+            font-size: 30px;
+            line-height: 1.5;
+            color: #0644ec;
+        }
+
+        .titulo{
+            font-family: sans-serif;
+            font-size: 24px;
+            line-height: 1.5;
+            color: #0644ec;
+        }
+    </style>
+</head>
+<body>
+<img src="data:image/jpeg;base64,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"    width="200px"/>
+<p></p>
+<p class="proprietario">Stack Academy</p>
+<p class="titulo"># Tecnicas Avancadas de NLP </p>
+<p></p>
+<p>Mais um Curso Sensacional oferecido pela Stack Academy para vocês! Imperdível!</p>
+<p>A Stack Academy é a Plataforma Completa que vai te transformar em um profissional disputado!</p>
+<p>Porque esse curso é importante: Cientista e Engenheiro de Dados são as profissões mais bem remuneradas e, ao mesmo tempo, com as melhores oportunidades no mercado de trabalho.</p>    
+<p>Somos a Stack Academy e temos treinamentos completos para alavancar a sua carreira como Analista, Cientista ou Engenheiro de Dados.</p>
+<p>Fundadores da Stack Academy: Rodrigo Santana e Felipe Santana. Fundadores da Stack academy e Grandes influenciadores na area de dados, tendo formado mais de 3.500 alunos na Stack Academy e atendendo clientes de grande porte com equipes de dados formadas pelos próprios aluns da comunidade que são contratados pela Stack Tecnologias, mais uma empresa fundada por Rodrigo Santana e Felipe Santana. Além disso a Stack Academy se alia a outros profissionais especialistas, gabaritados e experientes na área, para em conjunto, ministrar cursos nas mais diversas áreas relacionadas a Ciência e Engenharia de Dados.</p>
+<p>Nome do Curso: Técnicas Avançadas de NLP </p>
+<p>Objetivo do Curso: Dando aos computadores a capacidade de compreender textos </p>
+<p>Professor do Curso: Giuliano Ferreira </p>
+<p>Data do Curso. O curso será ministrado ao vivo nos dias 03, 04, 10, 11 de Abril as 20h transmitido pelo Zoom. O curso será Gravado , então se você não puder ver ao vivo você poderá assistir os vídeos pela Plataforma da Stack Academy</p>
+<P>O curso pode ser iniciado imediatamente. Já está sendo trasmitido! Venha, vai ser incrível!</P>
+<p></p>
+<p>**Giuliano Ferreira é Analista de Sistemas na Divisão de Bibliotecas e Documentação da PUC-Rio e Especialista em Tecnologia. Possui vasta experiência em desenvolvimento de sistemas e gerência de projetos em Tecnologia da Informação. Heavy-User da Internet e entusiasta das Mídias e Redes Sociais vem desenvolvendo projetos on-line, ministrando cursos e palestras e discutindo tendências para ajudar pesquisadores das mais diversas áreas na rede mundial de computadores ao longo dos últimos 20 anos.** </p>
+<p></p>
+<p>Conteúdo do Curso: </p>
+<p></p>
+<p>01 </p>
+<p>Prática </p>
+<p>Como utilizar as bibliotecas e ferramentas </p>
+<p>Projetos </p>
+<p>Estudos de caso nas principais tarefas de machine learning </p>
+<p>Teoria</p>
+<p>Conceitos por trás do processamento de textos</p>
+<p>02</p>
+<p>03</p>
+<p>Resumo</p>
+<p></p>
+<p>— FORBES Magazine - 2021</p>
+<p>Problema Atual: “80% dos dados mundiais são não estruturados e o maior mecanismo de busca do mundo indexou apenas 0,004% de todos os dados disponíveis. ”</p>
+<p></p>
+<p>Exemplos da Vida Real</p>
+<p></p>
+<p>A barreira da linguagem</p>
+<p></p>
+<p>Teoria</p>
+<p>01</p>
+<p>Conceitos por trás do processamento de textos</p>
+<p></p>
+<p>Introdução ao processamento de linguagem natural</p>
+<p>O processamento de linguagem natural (NLP) é um ramo da inteligência artificial que ajuda os computadores a entender, interpretar e manipular a linguagem humana. O NLP permite que os computadores leiam e compreendam o texto, bem como gerem um texto mais natural e fácil de entender.</p>
+<p>Para um computador entender a linguagem, ele deve primeiro ter um processo automatizado para reconhecer padrões em texto (ou seja, um algoritmo NLP). Esses algoritmos recebem dados e criam um modelo desses dados; o modelo representa os dados e permite futuras previsões ou varreduras dos mesmos dados.</p>
+<p>Os algoritmos NLP podem ser usados de várias maneiras, desde a automação de tarefas de atendimento ao cliente até a compreensão do sentimento do cliente e o fornecimento de interfaces de linguagem natural para aplicativos como mecanismos de pesquisa e assistentes de voz.</p>
+<p></p>
+<p>Técnicas de NLP</p>
+<p>As técnicas de NLP são usadas para analisar texto e fala e podem ser divididas em duas categorias principais: análise sintática e análise semântica. A análise sintática envolve a análise da estrutura de uma frase, enquanto a análise semântica envolve a compreensão do significado de palavras e frases.</p>
+<p>As técnicas de NLP também podem ser usadas para gerar texto, como resumir um documento ou gerar perguntas a partir de um determinado texto.</p>
+<p></p>
+<p>Aplicações de NLP</p>
+<p>Os aplicativos de NLP são usados em vários campos, desde atendimento ao cliente até assistência médica. No atendimento ao cliente, o NLP pode ser usado para automatizar tarefas como responder a consultas de clientes, enquanto na área da saúde, o NLP pode ser usado para analisar registros médicos e gerar relatórios.</p>
+<p>O NLP também pode ser usado para gerar perguntas a partir de um determinado texto, como um questionário ou pesquisa, ou para gerar interfaces de linguagem natural para aplicativos como mecanismos de pesquisa e assistentes de voz.</p>
+<p></p>
+<p>Desafios da NLP</p>
+<p>A NLP é um campo complexo e ainda existem muitos desafios que precisam ser abordados. Um dos principais desafios é entender o contexto de uma frase, bem como as relações entre palavras e frases. Além disso, os sistemas NLP devem ser capazes de lidar com a ambigüidade, bem como lidar com a grande quantidade de dados disponíveis na web.</p>
+<p>Outro desafio é lidar com os diferentes dialetos e idiomas existentes, bem como com os diferentes estilos de escrita que as pessoas usam. Além disso, os sistemas de NLP devem ser capazes de lidar com a natureza em constante mudança da linguagem, pois novas palavras e frases são constantemente adicionadas.</p>
+<p></p>
+<p>Futuro da NLP</p>
+<p>O futuro da NLP é brilhante, pois a tecnologia está sendo usada em vários campos, desde atendimento ao cliente até assistência médica. Além disso, o NLP está sendo usado para gerar interfaces de linguagem natural para aplicativos como mecanismos de busca e assistentes de voz. À medida que a tecnologia continua a melhorar, ela será usada em mais e mais aplicações.</p>
+<p>A NLP também está sendo usada para analisar o sentimento do cliente, que pode ser usado para fornecer um melhor atendimento ao cliente e obter insights sobre o comportamento do cliente.</p>
+<p></p>
+<p>Conclusão sobre NLP</p>
+<p>O processamento de linguagem natural é uma tecnologia poderosa que pode ser usada de várias maneiras, desde a automatização de tarefas de atendimento ao cliente até a compreensão do sentimento do cliente e o fornecimento de interfaces de linguagem natural para aplicativos como mecanismos de pesquisa e assistentes de voz. A NLP é um campo complexo e ainda há muitos desafios que precisam ser enfrentados, mas o futuro da NLP é brilhante e a tecnologia está sendo usada em mais e mais aplicações.</p>
+<p>À medida que a tecnologia continua a melhorar, ela será usada em ainda mais aplicações, desde atendimento ao cliente até assistência médica. A NLP é um campo emocionante e em rápido desenvolvimento que tem o potencial de revolucionar a maneira como interagimos com a tecnologia.</p>
+<p>tome.app</p>
+<p></p>
+<p>As 3 Eras da NLP</p>
+<p>Simbólica</p>
+<p>1950 - 1980</p>
+<p>Estatística</p>
+<p>1980 - 2010</p>
+<p>Neural</p>
+<p>2010 - presente</p>
+<p></p>
+<p>NLP Simbólica</p>
+<p></p>
+<p>NLP Estatística</p>
+<p></p>
+<p>NLP Neural</p>
+<p></p>
+<p>NLP Neural - Conceito</p>
+<p>As redes neurais podem aprender com os dados e começar do zero para construir um modelo.</p>
+<p>É por isso que as redes neurais são tão úteis na NLP: elas podem obter informações relevantes a partir de dados em vez de usar regras e modelos que já foram feitos.</p>
+<p>O uso de redes neurais na NLP também é útil porque elas podem trabalhar com diferentes tipos de dados.</p>
+<p>Por exemplo, texto, imagens e áudio podem ser usados para análise de sentimentos.</p>
+<p>Uma vez que a rede neural tenha sido treinada em cada tipo de dados, o modelo pode descobrir o que os dados significam.</p>
+<p>Uma rede neural é composta de regras matemáticas que são baseadas na informação que é armazenada em sua memória.</p>
+<p>Para treinar a rede neural, você precisa carregar muitos dados na memória do modelo.</p>
+<p>Criar um conjunto de dados de treinamento é uma maneira de fazer isso. Um conjunto de dados de treinamento é composto de recursos semelhantes aos dados que você deseja prever.</p>
+<p></p>
+<p>Definição: [https://www.linkedin.com/in/data-analytics-mike/](https://www.linkedin.com/in/data-analytics-mike/)</p>
+<p></p>
+<p>Uma rede neural é construída usando regras matemáticas que são determinadas pela informação que é mantida em sua memória.</p>
+<p>Essas regras são baseadas nos dados.</p>
+<p>Para treinar a rede neural, uma quantidade significativa de dados precisa ser carregada na memória do modelo.</p>
+<p></p>
+<p>Definição: [https://www.linkedin.com/in/data-analytics-mike/](https://www.linkedin.com/in/data-analytics-mike/)</p>
+<p>NLP Neural - Resumo</p>
+<p></p>
+<p>Evolução dos algoritmos</p>
+<p>1950</p>
+<p>2020</p>
+<p>2010</p>
+<p></p>
+<p>Algoritmos atuais</p>
+<p>2018</p>
+<p>2023</p>
+<p>2022/2023</p>
+<p>KeyBERT</p>
+<p>BERTopic</p>
+<p>GPT</p>
+<p>GPT-3</p>
+<p>RoBERTa</p>
+<p>2020</p>
+<p>T5</p>
+<p>GPT-4</p>
+<p>(OpenAI)</p>
+<p>LaMDA</p>
+<p>(Google)</p>
+<p>BLOOM</p>
+<p>GPT-J</p>
+<p>Poe(Quora)</p>
+<p>ChatGPT</p>
+<p>Aplicação Real do Modelo</p>
+<p>ERNIE</p>
+<p>(Baidu)</p>
+<p>GPT-3.5</p>
+<p>Llama</p>
+<p>(Meta)</p>
+<p></p>
+<p>Técnicas anteriores</p>
+<p></p>
+<p>Atualmente: Vetores de Palavras - Embeddings</p>
+<p></p>
+<p>Sentence Transformers Library</p>
+<p></p>
+<p>Sentence Transformers - Result Embedding</p>
+<p></p>
+<p>Sentence: “Sentences are passed as a list of string.”</p>
+<p></p>
+<p>Espaço Vetorial</p>
+<p></p>
+<p>Vetores de Palavras - Representação</p>
+<p></p>
+<p>Exemplos - Coding Mode 1</p>
+<p></p>
+<p>Tokenizadores - conceito</p>
+<p></p>
+<p>Tokenizadores - na prática</p>
+<p></p>
+<p>Stopwords</p>
+<p></p>
+<p>Stemming</p>
+<p></p>
+<p>Lemmatization</p>
+<p></p>
+<p>Unicode Normalization</p>
+<p></p>
+<p>POS Tagging</p>
+<p></p>
+<p>Named Entity Recognition</p>
+<p></p>
+<p>Exemplos - Coding Mode 2</p>
+<p></p>
+<p>Crescimento de dados de conteúdo não estruturado (por exemplo, documentos de e-mail Imagens, vídeo e áudio)</p>
+<p>80%</p>
+<p>Gestores que perdem informações importantes ao tomar decisões de negócios</p>
+<p>60%</p>
+<p>Conteúdo organizacional que traz riscos sem agregar valor ao negócio</p>
+<p>50%</p>
+<p>Dificuldades encontradas pelas empresas</p>
+<p></p>
+<p>Contexto</p>
+<p></p>
+<p>Atenção</p>
+<p></p>
+<p>Google Research Article: Attention is All You Need - [https://research.google/pubs/pub46201/](https://research.google/pubs/pub46201/)</p>
+<p></p>
+<p>Similaridade de termos</p>
+<p></p>
+<p>métricas</p>
+<p>distância</p>
+<p></p>
+<p>Similaridade de Sentenças</p>
+<p></p>
+<p>Palavras</p>
+<p>Sentenças</p>
+<p></p>
+<p>Análise de Sentimento</p>
+<p></p>
+<p>Negative</p>
+<p>classificação por categoria > tópico > atributo > sentimento</p>
+<p></p>
+<p>Exemplos - Coding Mode 4</p>
+<p></p>
+<p>“BEM VINDOS AO</p>
+<p>FUTURO,</p>
+<p>ONDE AS</p>
+<p>MÁQUINAS FALAM A NOSSA LÍNGUA…”</p>
+<p></p>
+<p>Transformers</p>
+<p></p>
+<p>Hugging Face</p>
+<p></p>
+<p>Tipos de Modelos</p>
+<p></p>
+<p>Hugging Face Datasets</p>
+<p></p>
+<p>Hugging Face Datasets: [https://huggingface.co/datasets](https://huggingface.co/datasets)</p>
+<p></p>
+<p>SQUAD - Stanford Question Answer Dataset</p>
+<p></p>
+<p>Outors DATASETS para treinar NLP:</p>
+<p></p>
+<p>OSCAR: [https://oscar-corpus.com/](https://oscar-corpus.com/) 295</p>
+<p>Wikipedia: script para baixar wikipedia em qualquer idioma [https://github.com/fastai/course-nlp/blob/master/nlputils.py](https://github.com/fastai/course-nlp/blob/master/nlputils.py) 154</p>
+<p>The BrWaC (Brazilian Portuguese Web as Corpus) is a large corpus constructed in our lab following the Wacky framework, which was made public for research purposes [https://www.inf.ufrgs.br/pln/wiki/index.php?title=BrWaC](https://www.inf.ufrgs.br/pln/wiki/index.php?title=BrWaC) 128</p>
+<p>BlogSet-BR é uma coleção de postagens retiradas de blogs na plataforma Blogspot escritas por usuários brasileiros [https://www.inf.pucrs.br/linatural/wordpress/recursos-e-ferramentas/blogset-br/](https://www.inf.pucrs.br/linatural/wordpress/recursos-e-ferramentas/blogset-br/) 127</p>
+<p>Lista completa: [https://forum.ailab.unb.br/t/datasets-em-portugues/251](https://forum.ailab.unb.br/t/datasets-em-portugues/251)</p>
+<p></p>
+<p>OpenAI GPT-3 Embeddings</p>
+<p></p>
+<p>OpenAI GPT-3 Completion</p>
+<p></p>
+<p>OpenAI GPT-3.5-Turbo Chat Completion</p>
+<p></p>
+<p>Transformers (Behind the Scene)</p>
+<p></p>
+<p>OpenAI Playground</p>
+<p></p>
+<p>OpenAI GPT-4</p>
+<p></p>
+<p>Vision-Language Model</p>
+<p></p>
+<p>Nvidia Prismer</p>
+<p></p>
+<p>Prompt Engineering</p>
+<p></p>
+<p>[https://github.com/dair-ai/Prompt-Engineering-Guide](https://github.com/dair-ai/Prompt-Engineering-Guide)</p>
+<p></p>
+<p>LangChain Library</p>
+<p></p>
+<p>Tarefas NLP</p>
+<p>Análise de Sentimentos</p>
+<p>Sumarização</p>
+<p>de Textos</p>
+<p>Predição de Sentenças</p>
+<p>Similaridade Semântica</p>
+<p>Sistemas de Recomendação</p>
+<p>Perguntas e Respostas</p>
+<p>Tradução de Textos</p>
+<p>Correção Ortográfica</p>
+<p>Geração de Textos</p>
+<p></p>
+<p>Mãos ao Código - Carregando os Modelos</p>
+<p></p>
+<p>Mãos ao Código - Usando os Modelos</p>
+<p></p>
+<p>Prática</p>
+<p>02</p>
+<p>Como utilizar as bibliotecas e ferramentas</p>
+<p></p>
+<p>SETUP DO</p>
+<p>AMBIENTE</p>
+<p>Ferramentas que vamos utilizar no desenvolvimento e no deploy</p>
+<p></p>
+<p>Pré-requisitos do ambiente</p>
+<p>Python 3.x</p>
+<p>VsCode ou outra IDE similar</p>
+<p>Pipenv, virtualenv ou similar</p>
+<p>Linux Recomendado (WSL, Máquina Virtual)</p>
+<p>Contas criadas nas Ferramentas</p>
+<p></p>
+<p>Conhecendo as Ferramentas</p>
+<p>Haystack</p>
+<p>NLP Framework para utilizar Transformers em suas aplicações</p>
+<p>Pinecone</p>
+<p>Base Vetorial para armazenar os seus embeddings</p>
+<p>Google Colab</p>
+<p>Ambiente de Desenvolvimento</p>
+<p>Online</p>
+<p></p>
+<p>Google Colab</p>
+<p></p>
+<p>Pinecone - Vector Database</p>
+<p></p>
+<p>Haystack - Framework</p>
+<p></p>
+<p>"A teoria vem da prática, e não ao contrário."</p>
+<p></p>
+<p>Exemplos - Coding Mode 5</p>
+<p></p>
+<p>Projetos</p>
+<p>03</p>
+<p>Estudos de caso nas principais tarefas de machine learning</p>
+<p></p>
+<p>Masked Language Model</p>
+<p>Uma maneira de realizar a previsão de palavras que originalmente estava oculta intencionalmente em uma frase</p>
+<p>Estudos de Caso</p>
+<p></p>
+<p>Exemplos - Coding Mode 6 a 9</p>
+<p></p>
+<p>Tradução</p>
+<p>Converter automaticamente um idioma natural em outro, preservando o significado do texto de entrada e produzindo texto fluente no idioma de saída</p>
+<p>Estudos de Caso</p>
+<p></p>
+<p>Exemplos - Coding Mode 6 a 9</p>
+<p></p>
+<p>Sumarização</p>
+<p>É o processo de resumir as informações em grandes textos para consumo mais rápido</p>
+<p>Estudos de Caso</p>
+<p></p>
+<p>Exemplos - Coding Mode 6 a 9</p>
+<p></p>
+<p>Perguntas e Respostas</p>
+<p>Sistemas que respondem automaticamente a perguntas feitas por humanos em uma linguagem natural</p>
+<p>Estudos de Caso</p>
+<p></p>
+<p>Exemplos - Coding Mode 6 a 9</p>
+<p></p>
+<p>Similaridade Semântica</p>
+<p>Pontua a relação de semelhança entre textos ou documentos usando uma métrica definida</p>
+<p>Estudos de Caso</p>
+<p></p>
+<p>Exemplos - Coding Mode 6 a 9</p>
+<p></p>
+<p>Geração de Textos</p>
+<p>Gera frases e sentenças significativas na forma de texto escrito por humanos.</p>
+<p>Estudos de Caso</p>
+<p></p>
+<p>Exemplos - Coding Mode 6 a 9</p>
+<p></p>
+<p>Spell Check</p>
+<p>Modelo que detecta e corrige erros de ortografia em seu texto de entrada</p>
+<p>Estudos de Caso</p>
+<p></p>
+<p>Exemplos - Coding Mode 6 a 9</p>
+<p></p>
+<p>Autocomplete</p>
+<p>Gera a próxima palavra mais provável que continua com o que já escrevemos anteriormente</p>
+<p>Estudos de Caso</p>
+<p></p>
+<p>Exemplos - Coding Mode 6 a 9</p>
+<p></p>
+<p>Dúvidas ou Sugestões?</p>
+<p>Se você tiver dúvidas sobre o curso, basta acessar a comunidade do Discord e enviar a sua dúvida. A comunidade e os professores estarão sempre dispostos a lhe ajudar.</p>
+<p>Material de Apoio:</p>
+<p></p>
+<p>Links</p>
+<p>Código fonte</p>
+<p>Bases de Dados</p>
+<p>Apresentação</p>
+<p></p>
+<p>Todos os cursos da Stack Academy oferecem Certificado de Conclusão! Eles são emitidos automaticamente para o seu e-mail quando se assiste a todo conteudo do curso.</p>
+<p>Github do Projeto com os codigos fontes completos e toda a apresentação: [https://github.com/ferramentas-stackacademy/Tecnicas-Avancadas-de-NLP](https://github.com/ferramentas-stackacademy/Tecnicas-Avancadas-de-NLP)</p>
+<p></p>
+<p>OBRIGADO!</p>
+<p>Gostaria de bater mais um papo sobre NLP?</p>
+<p>Contato para falar com Giuliano Ferreira: [https://www.linkedin.com/in/giuferreira/](https://www.linkedin.com/in/giuferreira/)</p>
+<p>Entre na Comunidade da Stack Academy no Discord: https://discord.gg/dnnr7PXz </p>
+<p>Site da Stack Academy para inscrição imediata: https://stackacademy.com.br/</p>
+<p></p>
+</body>
+</html>
