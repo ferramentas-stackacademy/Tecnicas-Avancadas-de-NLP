@@ -14,6 +14,14 @@ Link para obter API Key da OpenAI (Criar conta > clicar no icone da conta > view
 
 https://platform.openai.com/
 
+Link para obter API Key da Pinecone (Login > Conta Google > API keys > copy key and Enviroment)
+
+https://app.pinecone.io/
+
+Link para obter o access token da Huggin Face (Criar conta > clicar no icone da conta > access tokens > copy READ)
+
+https://huggingface.co/
+
 
 [objetivo do curso]
 
@@ -48,9 +56,9 @@ $ uvicorn main:app --reload
 
 Copiar a URL do Servidor da porta 8000 na aba PORTS
 
-Atualizar a variavel SITE_URL no arquivo.env 
+Atualizar a variavel API_URL no arquivo.env com a url copiada
 
-Atualizar a variavel API_URL no arquivo.env 
+Atualizar a variavel SITE_URL no arquivo.env com o site do curso que sera analisado
 
 Abrir um novo terminal e depois entrar na pasta do streamlit
 
@@ -70,3 +78,9 @@ Temos os seguintes recursos GET disponíveis na API:
 2. Responder uma pergunta com base em uma URL específica na web
 
 - http://URL_do_servidor:8000/answer?url=<SUA_URL>&question=<SUA_QUESTAO>
+
+BÔNUS:
+
+- [**Chat GPT Prompting Cheat Sheet** ]
+
+![alt text](./prompt_engineering/chatgpt-prompting-cheat-sheet.jpg)
