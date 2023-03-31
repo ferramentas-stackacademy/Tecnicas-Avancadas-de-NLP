@@ -18,9 +18,13 @@ Link para obter API Key da Pinecone (Login > Conta Google > API keys > copy key 
 
 https://app.pinecone.io/
 
-Link para obter o access token da Huggin Face (Criar conta > clicar no icone da conta > access tokens > copy READ)
+Link para obter o access token da Huggin Face (Criar conta > clicar no icone da conta > settings > access tokens > copy WRITE)
 
 https://huggingface.co/
+
+Link para obter a API Key da SERP API (Criar conta > Your Account > Api Key > copy)
+
+https://serpapi.com/
 
 
 [objetivo do curso]
