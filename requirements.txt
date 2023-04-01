@@ -5,5 +5,4 @@ beautifulsoup4
 openai
 streamlit
 requests_html
-matplotlib
 python-dotenv

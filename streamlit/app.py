@@ -5,8 +5,6 @@ import streamlit as st
 from requests_html import HTMLSession
 
 # basic libraries
-import matplotlib.pyplot as plt
-import pandas as pd
 import time
 from PIL import Image
 

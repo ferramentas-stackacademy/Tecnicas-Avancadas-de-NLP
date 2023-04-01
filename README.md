@@ -37,7 +37,22 @@ Natural Language Processing(NLP) é uma área de estudo que combina a ciência d
 [Para este projeto, foram usados as seguintes tecnologias: ]
 
 - **NLP com Machine Learning  e Deep Learning. BERT, Transformers, Hugging Faces, Pinecone, Haystack, LangChain.**: Técnicas, ferramentas, bases vetoriais e frameworks utilizados nos códigos fontes do curso;
+
 - **Github**: Controle do versionamento do código e repositório para armazenar os artefatos do curso para servir como portifolio;
+
+- **FastAPI**: é uma estrutura de alto nível para criar aplicativos da Web de API com Python 3.6+. Ele é construído sobre a popular estrutura da Web ASGI, Starlette, e oferece muitos recursos úteis para a criação rápida e fácil de APIs robustas.
+
+- **Uvicorn**: É um servidor ASGI baseado no mecanismo do servidor web Uvicorn. Ele oferece uma maneira fácil de executar aplicativos da Web ASGI, como FastAPI, Starlette, Responder e muito mais.
+
+- **HTTPX**: É uma biblioteca HTTP moderna para Python que fornece uma API completa para fazer solicitações HTTP/1.1 e HTTP/2. Ele é construído sobre a biblioteca httpcore e oferece suporte para todos os principais recursos dos protocolos HTTP/1.1 e HTTP/2.
+
+- **BeautifulSoup4** é uma biblioteca de análise HTML e XML para Python que permite extrair facilmente dados de documentos HTML ou XML sem ter que escrever códigos complicados.
+
+- **OpenAI**: OpenAI é um laboratório de pesquisa de inteligência artificial estadunidense que consiste na organização sem fins lucrativos OpenAI Incorporated e sua subsidiária com fins lucrativos OpenAI Limited Partnership.
+
+- **Streamlit** – Streamlit é uma estrutura de desenvolvimento da Web para criar aplicativos Python interativos, simplesmente escrevendo código Python padrão.
+
+- **Requests_html**: Requests_html é uma biblioteca que permite fazer requisições web como se você estivesse no navegador, permitindo que você interaja com sites dinâmicos como se fosse um ser humano.
 
 [O projeto final foi organizados na seguinte arquitetura:] 
 
@@ -45,7 +60,11 @@ Natural Language Processing(NLP) é uma área de estudo que combina a ciência d
 
 [Instruções para executar aplicação/projeto]
 
-Setup do Ambiente da API
+Setup do Ambiente da API (Ambientes Linux)
+
+$ pip install virtualenv
+$ virtualenv venv
+$ source venv/bin/activate
 
 $ pip install -r requirements.txt
 
@@ -68,6 +87,10 @@ Abrir um novo terminal e depois entrar na pasta do streamlit
 
 $ cd streamlit
 $ streamlit run app.py
+
+Copiar a URL do Servidor da porta 8501 na aba PORTS
+
+Colar na lista de origins na /api/main.py
 
 Acessar a documentacao da API: URL_do_servidor:8000/docs 
 
