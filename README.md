@@ -77,6 +77,8 @@ Editar o arquivo .env e incluir a sua OPENAI_API_KEY
 $ cd api
 $ uvicorn main:app --reload
 
+Se estiver no Gitpod, colocar a Porta 8000 como acesso publico (clicando no cadeadinho)
+
 Copiar a URL do Servidor da porta 8000 na aba PORTS
 
 Atualizar a variavel API_URL no arquivo.env com a url copiada
