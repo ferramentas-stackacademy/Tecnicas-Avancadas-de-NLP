@@ -34,8 +34,9 @@ async def getContent(url):
     async with httpx.AsyncClient() as client:
         response = await client.get(url)
     soup = BeautifulSoup(response.content, 'html.parser')
-    paragraphs = [p.text for p in soup.find_all('p')]
-    content = ' '.join(paragraphs)    
+    #paragraphs = [p.text for p in soup.find_all('p')]
+    #content = ' '.join(paragraphs)    
+    content = soup.get_text()
     return content
 
 # Check if the API is Alive
