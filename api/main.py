@@ -17,7 +17,7 @@ app = FastAPI()
 origins = [
     "http://localhost",
     "http://localhost:8501",
-    "https://8501-giuferreira-cursotecnic-cew0gqba5so.ws-us92.gitpod.io", # Substitua pela url da sua aplicacao Streamlit (No gitpod está na aba Ports)
+    "ohttps://8501-giuferreira-cursotecnic-cew0gqba5so.ws-us92.gitpod.i", # Substitua pela url da sua aplicacao Streamlit (No gitpod está na aba Ports)
 ]
 
 # Insert the access permissions in the API

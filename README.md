@@ -85,8 +85,9 @@ Atualizar a variavel API_URL no arquivo.env com a url copiada
 
 Atualizar a variavel SITE_URL no arquivo.env com o site do curso que sera analisado
 
-Abrir um novo terminal e depois entrar na pasta do streamlit
+Abrir um novo terminal, certificar que o enviroment ta ativado e depois entrar na pasta do streamlit
 
+$ source venv/bin/activate
 $ cd streamlit
 $ streamlit run app.py
 
